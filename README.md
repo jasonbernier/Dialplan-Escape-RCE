@@ -8,7 +8,7 @@
 
 **FOR EDUCATIONAL AND AUTHORIZED PENETRATION TESTING PURPOSES ONLY.**
 
-This tool is a Proof of Concept (PoC) demonstrating a Remote Code Execution (RCE) vulnerability via a system-filter bypass in FusionPBX dialplan configurations. The author is not responsible for any misuse or damage caused by this tool. Always ensure you have explicit permission before testing on any target system.
+This tool is a Proof of Concept (PoC) demonstrating a Remote Code Execution (RCE) vulnerability via a system-filter bypass in FusionPBX dialplan configurations in FusionPBX 5.6.4-dev. The author is not responsible for any misuse or damage caused by this tool. Always ensure you have explicit permission before testing on any target system.
 
 ---
 
