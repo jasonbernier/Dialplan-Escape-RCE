@@ -10,6 +10,12 @@
 
 This tool is a Proof of Concept (PoC) demonstrating a Remote Code Execution (RCE) vulnerability via a system-filter bypass in FusionPBX dialplan configurations in FusionPBX 5.6.4-dev. The author is not responsible for any misuse or damage caused by this tool. Always ensure you have explicit permission before testing on any target system.
 
+FusionPBX intentionally removes dangerous FreeSWITCH applications such as `system`, `bgsystem`, `spawn`, `bg_spawn`, and `spawn_stream` from the structured dialplan editor's application list. The corresponding server-side filter is logically incorrect, however, and permits these values to be submitted and stored.
+
+On a secure default installation, FreeSWITCH's independent command controls prevent the stored `system` action from executing. If a trusted administrator deliberately disables the applicable FreeSWITCH control and reloads the relevant runtime component, the previously accepted dialplan action can execute an operating-system command as the FreeSWITCH service account when its route is triggered.
+
+FusionPBX 5.6.4-dev ships FreeSWITCH with the relevant system-command interfaces disabled. Under the stock FusionPBX permission model, exploitation requires an authenticated superadmin session—or another account explicitly granted equivalent permissions—and the applicable system-command interface must already be enabled or be enabled administratively. The relevant FreeSWITCH module must then be loaded after the configuration change.
+
 ---
 
 ### Vulnerability Mechanism
